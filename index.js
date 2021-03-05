@@ -23,5 +23,3 @@ function markAddress(geocoder, resultsMap) {
     }
   });
 }
-
-function getListOfRestaurants()
