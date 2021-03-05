@@ -1,0 +1,22 @@
+{
+  "name": "meet2eat",
+  "version": "1.0.0",
+  "description": "Meet with friends, eat with friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aari0001/meet2eat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aari0001/meet2eat/issues"
+  },
+  "homepage": "https://github.com/aari0001/meet2eat#readme",
+  "dependencies": {
+    "socket.io": "^3.1.2"
+  }
+}
