@@ -9,7 +9,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "npx tailwindcss-cli@latest build -o /public/main.css"
+    "build:css": "tailwind build src/tailwindcss/style.css -o public/css/main.css"
   },
   "main": "index.js",
   "dependencies": {

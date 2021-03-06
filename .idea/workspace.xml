@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c72b37c-ed4b-4e9a-9de4-729bf94e2210" name="Default Changelist" comment="" />
+    <list default="true" id="0c72b37c-ed4b-4e9a-9de4-729bf94e2210" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/mainPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tailwindcss/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Vue Single File Component" />
         <option value="CSS File" />
       </list>
     </option>
@@ -31,6 +41,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\James\Documents\Development\github\meet2eat\public\css" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -55,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614986182966</updated>
       <workItem from="1614986187753" duration="295000" />
-      <workItem from="1614986519071" duration="1035000" />
+      <workItem from="1614986519071" duration="2637000" />
     </task>
     <task id="LOCAL-00001" summary="Committing the vue and tailwind setup">
       <created>1614987416263</created>
@@ -64,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614987416263</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Committing the vue and tailwind setup (remembered to click unversionved files)">
+      <created>1614987747399</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614987747399</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -72,24 +94,29 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Committing the vue and tailwind setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Committing the vue and tailwind setup" />
+    <MESSAGE value="Committing the vue and tailwind setup (remembered to click unversionved files)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Committing the vue and tailwind setup (remembered to click unversionved files)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="132" y="0" key="CommitChangelistDialog2" timestamp="1614987415168">
+    <state x="272" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614987838428">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="132" y="0" key="CommitChangelistDialog2/0.0.1504.963@0.0.1504.963" timestamp="1614987415168" />
+    <state x="272" y="271" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1504.963@0.0.1504.963" timestamp="1614987838428" />
+    <state x="132" y="0" key="CommitChangelistDialog2" timestamp="1614987746512">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="132" y="0" key="CommitChangelistDialog2/0.0.1504.963@0.0.1504.963" timestamp="1614987746512" />
     <state x="29" y="125" key="SettingsEditor" timestamp="1614986788675">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="29" y="125" key="SettingsEditor/0.0.1504.963@0.0.1504.963" timestamp="1614986788675" />
-    <state x="120" y="196" key="Vcs.Push.Dialog.v2" timestamp="1614987419015">
+    <state x="120" y="196" key="Vcs.Push.Dialog.v2" timestamp="1614987752173">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="120" y="196" key="Vcs.Push.Dialog.v2/0.0.1504.963@0.0.1504.963" timestamp="1614987419015" />
-    <state x="326" y="394" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614987720331">
+    <state x="120" y="196" key="Vcs.Push.Dialog.v2/0.0.1504.963@0.0.1504.963" timestamp="1614987752173" />
+    <state x="326" y="394" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614989154217">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="326" y="394" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1504.963@0.0.1504.963" timestamp="1614987720331" />
+    <state x="326" y="394" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1504.963@0.0.1504.963" timestamp="1614989154217" />
   </component>
 </project>
