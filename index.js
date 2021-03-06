@@ -63,6 +63,7 @@ function callback(results, status) {
       // console.log(haversine_distance(locationCentre, results[i].geometry.location));
       // createMarker(results[i]); // mark the results
     }
+    console.log(listOfPlaces)
     return listOfPlaces;
   }
 }
