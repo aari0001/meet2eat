@@ -1,5 +1,5 @@
 let locationCentre; // eg locationCentre.lat()
-let nearbyPlaces20; // 20 nearby restaurants
+let nearbyPlaces20; // 20 nearby restaurants. Refer to class to get any info
 let mainMap; // main google map
 let placeType = 'restaurant'; // type of places to look up nearby
 
@@ -54,13 +54,16 @@ function listNearby() {
 
 function callback(results, status) {
   // Function: returns results of nearby places
+  var listOfPlaces = [];
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     console.log(results.length);
     for (var i = 0; i < results.length; i++) {
-      console.log(haversine_distance(locationCentre, results[i].geometry.location));
+      listOfPlaces.push(new Venue(results[i]));
+      // console.log(listOfPlaces[i].name);
+      // console.log(haversine_distance(locationCentre, results[i].geometry.location));
       // createMarker(results[i]); // mark the results
     }
-    return results;
+    return listOfPlaces;
   }
 }
 
@@ -87,4 +90,26 @@ function haversine_distance(mk1, mk2) {
 
   var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
   return d;
+}
+
+class Venue {
+  constructor(googlePlace) {
+    this.place = googlePlace;
+    this.name = this.getName();
+    this.location = this.getLocation();
+    this.rating = this.getRating();
+    this.img = this.getImgUrl();
+  }
+  getImgUrl() {
+    return this.place.photos[0].getUrl();
+  }
+  getName() {
+    return this.place.name;
+  }
+  getLocation() {
+    return this.place.geometry.location;
+  }
+  getRating() {
+    return this.place.rating;
+  }
 }
