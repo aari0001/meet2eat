@@ -7,48 +7,47 @@
   >
     <div class="relative w-full pt-16">
       <transition name="fade" mode="out-in">
-        <div
-        class="w-72 rounded-lg  p-2 bg-white shadow-lg absolute mx-auto transition-all -translate-x-1/2 transform flex flex-col"
-        :style="
+        <card-template :style="
           `left: calc(50% + ${currentPos - startPos}px); transition-duration: ${
             touching ? '10ms' : '300ms'
           }`
         "
-        :key="currentPlace"
-      >
-        <h1 class="text-2xl text-gray-700">
-          {{ placeData[currentPlace].name }}
-        </h1>
-        <div class="py-2">
-          <img :src="placeData[currentPlace].img" alt="photo" />
-        </div>
-        <div class="w-full flex flex-row justify-between pb-4">
-          <div class="text-gray-500">
+                       :key="currentPlace">
+          <template v-slot:title>
+            {{ placeData[currentPlace].name }}
+          </template>
+          <template v-slot:image>
+            <img :src="placeData[currentPlace].img" alt="photo" />
+          </template>
+          <template v-slot:rating>
             rating: {{ placeData[currentPlace].rating }}/5
-          </div>
-          <div
-            :class="
+          </template>
+          <template v-slot:open>
+            <div
+                :class="
               placeData[currentPlace].place.opening_hours.open_now
                 ? 'text-green-400'
                 : 'text-red-400'
             "
-          >
-            {{
-              placeData[currentPlace].place.opening_hours.open_now
-                ? "open"
-                : "closed"
-            }}
-          </div>
-        </div>
-      </div>
+            >
+              {{
+                placeData[currentPlace].place.opening_hours.open_now
+                    ? "open"
+                    : "closed"
+              }}
+            </div>
+          </template>
+        </card-template>
       </transition>
     </div>
   </div>
 </template>
 
 <script>
+import CardTemplate from "@/components/misc/cardTemplate";
 export default {
   name: "selectRestaurant",
+  components: {CardTemplate},
   data() {
     return {
       startPos: 0,
@@ -217,7 +216,7 @@ export default {
         this.restaurantInfo[this.placeData[this.currentPlace]] = swipe === 'right'
         this.swipe = "none";
         if (this.currentPlace === this.placeData.length - 1) {
-          this.$store.commit('setPageSelected', 'login')
+          this.$store.commit('setPageSelected', 'chosenRestaurant')
         } else {
           this.currentPlace += 1;
         }
@@ -229,14 +228,5 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease !important;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 
 </style>

@@ -1,7 +1,10 @@
 <template>
     <div class="w-screen h-screen bg-red-400">
+      <transition name="fade" mode="out-in">
         <login v-if="pageSelected === 'login'"/>
-        <select-restaurant v-if="pageSelected === 'room'"/>
+        <select-restaurant v-else-if="pageSelected === 'room'"/>
+        <chosen-restaurant v-else-if="pageSelected === 'chosenRestaurant'"/>
+      </transition>
     </div>
 </template>
 
@@ -9,9 +12,10 @@
 
     import Login from "./login";
     import SelectRestaurant from "@/components/selectRestaurant";
+    import ChosenRestaurant from "@/components/chosenRestaurant";
     export default {
         name: "mainPage.vue",
-        components: {SelectRestaurant, Login},
+        components: {ChosenRestaurant, SelectRestaurant, Login},
         computed: {
             pageSelected() {
                 return this.$store.getters.getPageSelected
@@ -20,6 +24,17 @@
     }
 </script>
 
-<style scoped>
+<style>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease !important;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 
 </style>
