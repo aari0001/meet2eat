@@ -3,24 +3,28 @@
     @touchmove="touchmove"
     @touchstart="touchstart"
     @touchend="touchend"
-    class="w-full h-full flex flex-col"
+    class="w-full h-full flex flex-col items-center"
   >
-    <div class="relative w-full pt-16">
+    <div class=" w-full transition-all duration-300" :class="moreInfo ? 'pt-5':'pt-16'" >
+      <div class="overflow-hidden w-full transition-all duration-300 relative" :class="moreInfo ? 'h-0':'h-80'">
       <transition name="fade" mode="out-in">
         <card-template :style="
           `left: calc(50% + ${currentPos - startPos}px); transition-duration: ${
             touching ? '10ms' : '300ms'
           }`
         "
-                       :key="currentPlace">
+                       :key="currentPlace" class="-translate-x-1/2">
           <template v-slot:title>
             {{ placeData[currentPlace].name }}
           </template>
           <template v-slot:image>
             <img :src="placeData[currentPlace].img" alt="photo" />
           </template>
+          <template v-slot:address >
+            {{placeData[currentPlace].place.vicinity}}
+          </template>
           <template v-slot:rating>
-            rating: {{ placeData[currentPlace].rating }}/5
+            rating: <b>{{ placeData[currentPlace].rating }}/5</b>
           </template>
           <template v-slot:open>
             <div
@@ -39,7 +43,39 @@
           </template>
         </card-template>
       </transition>
+      </div>
     </div>
+    <div :class="moreInfo ? 'pt-0':'pt-10'" class="transition-all duration-300">
+      <button class="bg-red-50 text-lg rounded-full flex flex-row shadow-xl w-38" @click="moreInfo = !moreInfo">
+        <span class="pl-2 pt-2.5 pb-1.5"  >
+        {{moreInfo ? 'less info': 'more info'}}
+          </span>
+        <span>
+  <svg id="burger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49"
+       class="stroke-current text-black h-12 px-2 py-3"
+       stroke-linecap="round"
+       stroke-width="4"
+  >
+    <circle cx="25" cy="25" r="22" fill="none" />
+    <circle r="1" cx="25" cy="15"/>
+    <path d=" M25 22 V25 40 Z" stroke-linecap="round"/>
+  </svg>
+        </span>
+      </button>
+    </div>
+    <transition name="height" >
+      <div v-if="moreInfo" class="h-96 bg-white shadow-xl w-72 mt-10 rounded-lg p-2">
+        <h1 class="text-2xl text-gray-700">
+          {{placeData[currentPlace].name}}
+        </h1>
+        <h2 class="text-lg text-gray-800  font-medium pt-3"> tags:</h2>
+        <ul class="flex flex-col list-disc list-inside">
+          <li v-for="item in placeData[currentPlace].place.types" :key="item" class="text-gray-800" >
+            {{item.replaceAll('_', ' ')}}
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -56,6 +92,7 @@ export default {
       touching: false,
       disableTransition:false,
       currentPlace: 0,
+      moreInfo: false,
       placeData: [
         {
           place: {
@@ -191,12 +228,12 @@ export default {
 
         if (
           e.changedTouches["0"].screenX - this.startPos >
-          window.innerWidth / 3
+          window.innerWidth / 3 && !this.moreInfo
         ) {
           this.swipe = "right";
         } else if (
           e.changedTouches["0"].screenX - this.startPos <
-          -window.innerWidth / 3
+          -window.innerWidth / 3 && !this.moreInfo
         ) {
           this.swipe = "left";
         }
@@ -223,7 +260,7 @@ export default {
 
       }
     }
-  }
+  },
 };
 </script>
 
