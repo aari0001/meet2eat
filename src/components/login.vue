@@ -38,8 +38,12 @@
       />
     </svg>
     <h4 class="text-white">
-      meet friends, eat friends
+      meet with friends, eat with friends
     </h4>
+    <p class="text-white text-xs w-2/3 text-center pt-4">
+      Can't decide where your group wants to eat? Meet2Eat will make that decision for you! Join a room with your friends
+      and each member will, swipe to decide!
+    </p>
     <form class="w-2/3 pt-16" @submit.prevent="changePage('room')">
       <label
         for="join"
