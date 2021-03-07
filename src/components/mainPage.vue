@@ -1,5 +1,6 @@
 <template>
     <div class="w-screen h-screen bg-red-400 flex flex-col" >
+      <div class="hidden sm:inline text-4xl"> ONLY WORKS ON MOBILE, NEEDS TOUCH TO SWIPE. SIMULATE PHONES WITH BROWSER</div>
       <transition name="fade" mode="out-in">
         <login v-if="pageSelected === 'login'"/>
         <select-restaurant v-else-if="pageSelected === 'room'"/>
