@@ -3,9 +3,9 @@
         <h1 class="text-5xl pt-12" >
             meet2eat
         </h1>
-      <h4>
-        meet friends, eat friends
-      </h4>
+        <h4>
+            meet friends, eat friends
+        </h4>
         <form class="w-2/3 pt-16" @submit.prevent="changePage('room')">
             <label for="join" class="border-2 flex h-full flex-row border-gray-300 rounded bg-gray-100 flex-1">
                 <input id="join" type="text" class="bg-gray-100 px-2 py-1.5 rounded min-w-0" placeholder="enter room code">
@@ -25,13 +25,12 @@
     export default {
         name: "login",
         methods: {
-          changePage(newPage) {
-            this.$store.commit('setPageSelected', newPage)
-          }
+            changePage(newPage) {
+                this.$store.commit('setPageSelected', newPage)
+            }
         }
     }
 </script>
 
 <style scoped>
-
 </style>

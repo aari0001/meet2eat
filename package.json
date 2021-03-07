@@ -19,10 +19,14 @@
     "autoprefixer": "^10.2.5",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
+    "google-maps-api-loader": "^1.1.1",
     "postcss": "^8.2.7",
     "socket.io": "^3.1.2",
     "tailwindcss": "^2.0.3",
     "vue": "^3.0.0",
+    "vue-google-autocomplete": "^1.1.0",
+    "vue-socket.io": "^3.0.10",
+    "vue3-google-map": "^0.6.0",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

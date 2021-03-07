@@ -4,6 +4,7 @@
         <login v-if="pageSelected === 'login'"/>
         <select-restaurant v-else-if="pageSelected === 'room'"/>
         <chosen-restaurant v-else-if="pageSelected === 'chosenRestaurant'"/>
+        <create-room v-else-if="pageSelected === 'createRoom'"/>
       </transition>
     </div>
 </template>
@@ -13,9 +14,10 @@
     import Login from "./login";
     import SelectRestaurant from "@/components/selectRestaurant";
     import ChosenRestaurant from "@/components/chosenRestaurant";
+    import CreateRoom from "./createRoom";
     export default {
         name: "mainPage.vue",
-        components: {ChosenRestaurant, SelectRestaurant, Login},
+        components: {CreateRoom, ChosenRestaurant, SelectRestaurant, Login},
         computed: {
             pageSelected() {
                 return this.$store.getters.getPageSelected
