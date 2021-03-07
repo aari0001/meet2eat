@@ -13,11 +13,11 @@
     <div v-if="location" class="w-80  rounded shadow-xl overflow-hidden">
       <GoogleMap
         api-key="AIzaSyA0aa6r2T2f4mmDFkiZBrDt3BE9xpv_8-s"
-        style="width: 100%; height: 500px"
-        :center="{ lat: lat, lng: lng }"
+        style="width: 100%; height: 350px"
+        :center="{lat: -37.9258157, lng: 145.121299}"
         :zoom="15"
       >
-        <Marker :options="{ position: { lat: lat, lng: lng } }" />
+        <Marker :options="{ position: {lat: -37.9258157, lng: 145.121299} }" />
       </GoogleMap>
     </div>
     <div class="pt-4  text-center ">
@@ -62,7 +62,8 @@ export default {
       errorStr: null,
       lat: null,
       lng: null,
-      address: ""
+      address: "",
+      stringAddress: "",
     };
   },
 
@@ -75,16 +76,18 @@ export default {
     /**
      * When the location found
      * @param {Object} addressData Data of the found location
+     * @param {Object} placeResultData PlaceResult object
      */
-    getAddressData(addressData) {
+    getAddressData(addressData, placeResultData) {
       this.address = addressData;
+      this.stringAddress = placeResultData["formatted_address"];
       this.lat = addressData.latitude;
       this.lng = addressData.longitude;
     },
     resetInput() {
       this.address = "";
       this.$refs.address.clear();
-    }
+    },
   },
 
   created() {
@@ -102,7 +105,7 @@ export default {
         this.location = pos;
         this.lat = pos.coords.latitude;
         this.lng = pos.coords.longitude;
-        console.log(this.lat);
+        this.stringAddress =this.geocodedAddress()
       },
       err => {
         this.gettingLocation = false;
