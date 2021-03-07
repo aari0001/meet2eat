@@ -12,7 +12,7 @@
     </div>
     <div v-if="location" class="w-80 flex-1  rounded shadow-xl overflow-hidden">
       <GoogleMap
-        api-key="AIzaSyA0aa6r2T2f4mmDFkiZBrDt3BE9xpv_8-s"
+        api-key="<API-KEY>"
         style="width: 100%;"
         :center="{lat: lat, lng: lng}"
         :zoom="15"
