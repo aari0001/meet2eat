@@ -37,7 +37,7 @@
       </div>
     </div>
     <div :class="moreInfo ? 'pt-0':'pt-10'" class="transition-all duration-300">
-      <button class="bg-red-50 text-lg rounded-full flex flex-row shadow-xl w-38" @click="moreInfo = !moreInfo">
+      <button class="bg-white text-lg rounded-full flex flex-row shadow-xl w-38 focus:outline-none" @click="moreInfo = !moreInfo">
         <span class="pl-2 pt-2.5 pb-1.5"  >
         {{moreInfo ? 'less info': 'more info'}}
           </span>
