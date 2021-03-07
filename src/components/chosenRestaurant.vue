@@ -36,8 +36,8 @@
         </transition>
       </div>
     </div>
-    <div :class="moreInfo ? 'pt-0':'pt-10'" class="transition-all duration-300">
-      <button class="bg-white text-lg rounded-full flex flex-row shadow-xl w-38 focus:outline-none" @click="moreInfo = !moreInfo">
+    <div :class="moreInfo ? 'pt-0':'pt-10'" class="transition-all duration-300 flex flex-row">
+      <button class="bg-white text-lg rounded-full flex flex-row shadow-xl w-32 focus:outline-none" @click="moreInfo = !moreInfo">
         <span class="pl-2 pt-2.5 pb-1.5"  >
         {{moreInfo ? 'less info': 'more info'}}
           </span>
@@ -53,6 +53,9 @@
   </svg>
         </span>
       </button>
+      <button class="bg-white text-lg rounded-full flex flex-row justify-center shadow-xl w-32 focus:outline-none h-12 ml-5" @click="changePage('login')">
+       <span class=" pt-2.5 pb-1.5 text-center"> go again! </span>
+      </button>
     </div>
     <transition name="height" >
       <div v-if="moreInfo" class="h-96 bg-white shadow-xl w-72 mt-10 rounded-lg p-2">
@@ -67,6 +70,7 @@
         </ul>
       </div>
     </transition>
+
   </div>
 </template>
 
@@ -77,74 +81,65 @@ name: "chosenRestaurant",
   components: {CardTemplate},
   data() {
     return {
-      chosenData:         {
+      chosenData: {
         place: {
           business_status: "OPERATIONAL",
           geometry: {
-            location: {
-              lat: -37.8206276,
-              lng: 144.9551461
-            },
+            location: { lat: -37.911784, lng: 145.133304 },
             viewport: {
-              south: -37.8219320802915,
-              west: 144.9536826197085,
-              north: -37.8192341197085,
-              east: 144.9563805802915
+              south: -37.91313298029151,
+              west: 145.1319550197085,
+              north: -37.91043501970851,
+              east: 145.1346529802915
             }
           },
           icon:
-              "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-          name: "Best Western Melbourne City Hotel",
-          opening_hours: {
-            open_now: true
-          },
+              "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          name: "Roll'd Monash",
+          opening_hours: { open_now: true },
           photos: [
             {
-              height: 683,
+              height: 2176,
               html_attributions: [
-                '<a href="https://maps.google.com/maps/contrib/112250048383748281682">Best Western Melbourne City Hotel</a>'
+                '<a href="https://maps.google.com/maps/contrib/100781170704439726852">BAHAYA 298E15</a>'
               ],
-              width: 1024
+              width: 4608
             }
           ],
-          place_id: "ChIJWXdjjVFd1moRh_LdkkyRy5s",
+          place_id: "ChIJLXTx8stq1moRwAdi9_ZYQPs",
           plus_code: {
-            compound_code: "5XH4+P3 Melbourne VIC, Australia",
-            global_code: "4RJ65XH4+P3"
+            compound_code: "34QM+78 Clayton VIC, Australia",
+            global_code: "4RJ734QM+78"
           },
-          rating: 4,
-          reference: "ChIJWXdjjVFd1moRh_LdkkyRy5s",
+          rating: 3.2,
+          reference: "ChIJLXTx8stq1moRwAdi9_ZYQPs",
           scope: "GOOGLE",
-          types: [
-            "cafe",
-            "lodging",
-            "restaurant",
-            "food",
-            "point_of_interest",
-            "establishment"
-          ],
-          user_ratings_total: 658,
-          vicinity: "16 Spencer Street, Melbourne",
+          types: ["restaurant", "food", "point_of_interest", "establishment"],
+          user_ratings_total: 27,
+          vicinity: "Tenancy G16, Northern Plaza Monash University, Clayton",
           html_attributions: []
         },
-        name: "Best Western Melbourne City Hotel",
-        location: {
-          lat: -37.8206276,
-          lng: 144.9551461
-        },
-        rating: 4,
+        name: "Roll'd Monash",
+        location: { lat: -37.911784, lng: 145.133304 },
+        rating: 3.2,
         img:
-            "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATtYBwJEO3o-UEPzDwMdq1QohTc2NTdQPINeFZ2I_8hjY1iz466Kq_Ldcd0CJF0KSvuOtVBIOjfP_sno3oONr3EsPxlAOSbN4MY2sGSnuOlK3zC4JgWDmfyBSXB9zGarJCT8Ccbaa1MyyUOZCt9UbDNUI7EBUzBWCo9uNGQyGjm9L-m7euJy&3u1024&5m1&2e1&callback=none&key=AIzaSyD30U8t-5g3vo-U2bW3ZO7VANO24rOHqCQ&token=117430"
+            "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sATtYBwLxOJ6Cwlz19lqv30eH9XxlivzVKDrGk1vVjJdXPmwYR_sH7v5R68qADIVUH4LvvQ_1Z-g-0rsy90NFyHr0Roc56rUXa9UOoNknro-8E8RceB77KdcyWG-r5xBVKsc4q6CdChVvKO2N6fuj-0ABMAHTiAaEBlnDcI6tcysmsNv2Y3Ry&3u4608&5m1&2e1&callback=none&key=AIzaSyD30U8t-5g3vo-U2bW3ZO7VANO24rOHqCQ&token=73896"
       },
       moreInfo: false,
       showCard: false,
     }
   },
+  methods: {
+    changePage(newPage) {
+      this.$store.commit("setPageSelected", newPage);
+    },
+  },
 
 
   mounted() {
   this.showCard = true
-  }
+  },
+
 }
 </script>
 

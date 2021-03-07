@@ -1,11 +1,14 @@
 <template>
-    <div class="w-screen h-screen bg-red-400">
+    <div class="w-screen h-screen bg-red-400 flex flex-col" >
       <transition name="fade" mode="out-in">
         <login v-if="pageSelected === 'login'"/>
         <select-restaurant v-else-if="pageSelected === 'room'"/>
         <chosen-restaurant v-else-if="pageSelected === 'chosenRestaurant'"/>
         <create-room v-else-if="pageSelected === 'createRoom'"/>
       </transition>
+      <div class="h-16 w-full">
+
+      </div>
     </div>
 </template>
 
@@ -22,7 +25,7 @@
             pageSelected() {
                 return this.$store.getters.getPageSelected
             }
-        }
+        },
     }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex flex-col items-center p-2">
+  <div class="w-full h-full flex flex-col items-center p-2">
     <h1 class="text-4xl text-white text-center py-4">
       Enter your groups location
     </h1>
@@ -10,14 +10,15 @@
     <div v-if="gettingLocation">
       <i>Getting your location...</i>
     </div>
-    <div v-if="location" class="w-80  rounded shadow-xl overflow-hidden">
+    <div v-if="location" class="w-80 flex-1  rounded shadow-xl overflow-hidden">
       <GoogleMap
         api-key="AIzaSyA0aa6r2T2f4mmDFkiZBrDt3BE9xpv_8-s"
-        style="width: 100%; height: 350px"
-        :center="{lat: -37.9258157, lng: 145.121299}"
+        style="width: 100%;"
+        :center="{lat: lat, lng: lng}"
         :zoom="15"
+        class="h-full"
       >
-        <Marker :options="{ position: {lat: -37.9258157, lng: 145.121299} }" />
+        <Marker :options="{ position: {lat: lat, lng: lng} }" />
       </GoogleMap>
     </div>
     <div class="pt-4  text-center ">
@@ -29,7 +30,7 @@
         placeholder="Please type your address"
         v-on:placechanged="getAddressData"
         types=""
-        size="38"
+        size="30"
         class="px-2 py-1 rounded shadow-xl"
       >
       </vue-google-autocomplete>
@@ -43,6 +44,7 @@
         confirm
       </div>
     </transition>
+    <div class="h-8"></div>
   </div>
 </template>
 
@@ -60,8 +62,8 @@ export default {
       location: null,
       gettingLocation: false,
       errorStr: null,
-      lat: null,
-      lng: null,
+      lat: -37.9258157,
+      lng: 145.121299,
       address: "",
       stringAddress: "",
     };
@@ -103,9 +105,7 @@ export default {
       pos => {
         this.gettingLocation = false;
         this.location = pos;
-        this.lat = pos.coords.latitude;
-        this.lng = pos.coords.longitude;
-        this.stringAddress =this.geocodedAddress()
+
       },
       err => {
         this.gettingLocation = false;
