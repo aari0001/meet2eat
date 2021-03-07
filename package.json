@@ -8,7 +8,7 @@
     "node": "14.16.0"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --https true",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build:css": "tailwind build src/tailwindcss/style.css -o public/main.css",
